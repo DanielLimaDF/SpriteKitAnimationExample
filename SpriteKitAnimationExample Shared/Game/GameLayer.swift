@@ -33,7 +33,7 @@ class GameLayer: SKNode {
 
 extension GameLayer: NodeSetup {
     func configure() {
-        square.position = CGPoint(x: 0, y: 0)
+        square.position = CGPoint(x: square.size.width/2, y: square.size.height/2)
     }
     
     func buildViewHierarchy() {
@@ -41,6 +41,21 @@ extension GameLayer: NodeSetup {
     }
     
     func createAndStartAnimations() {
+        
+        let topLeftPosition = CGPoint(x: square.size.width/2, y: size.height - square.size.height/2)
+        let topRightPosition = CGPoint(x: size.width - square.size.width/2, y: size.height - square.size.height/2)
+        let bottomRightPosition = CGPoint(x: size.width - square.size.width/2, y: square.size.height/2)
+        let bottomLeftPosition = CGPoint(x: square.size.width/2, y: square.size.height/2)
+        
+        let goTopLeft = SKAction.move(to: topLeftPosition, duration: 1)
+        let goTopRight = SKAction.move(to: topRightPosition, duration: 1)
+        let goBottomRight = SKAction.move(to: bottomRightPosition, duration: 1)
+        let goBottomLeft = SKAction.move(to: bottomLeftPosition, duration: 1)
+        
+        let sequence = SKAction.sequence([goTopLeft, goTopRight, goBottomRight, goBottomLeft])
+        let repeatForever = SKAction.repeatForever(sequence)
+        
+        square.run(repeatForever)
         
     }
 }
