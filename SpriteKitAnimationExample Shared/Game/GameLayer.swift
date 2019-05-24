@@ -12,10 +12,12 @@ class GameLayer: SKNode {
     
     let size: CGSize
     let square: SKSpriteNode
+    let hotDog: HotDog
     
     init(sceneSize: CGSize) {
         size = sceneSize
         square = SKSpriteNode(texture: nil, color: SKColor.yellow, size: CGSize(width: 100, height: 100))
+        hotDog = HotDog()
         super.init()
         setupNode()
     }
@@ -24,32 +26,39 @@ class GameLayer: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func buildHierarchy(){
-        
-    }
     
 }
 
 extension GameLayer: NodeSetup {
     func configure() {
-        square.position = CGPoint(x: size.width/2, y: size.height/2)
+        square.position = CGPoint(x: square.size.width/2, y: square.size.height/2)
+        hotDog.position = CGPoint(x: size.width/2, y: size.height/2)
+        hotDog.setScale(4)
     }
     
     func buildViewHierarchy() {
         addChild(square)
+        addChild(hotDog)
     }
     
     func createAndStartAnimations() {
         
-        //let topLeftPosition
-        //let topRightPosition
-        //let bottomRightPosition
-        //let bottomLeftPosition
+        let topLeftPosition = CGPoint(x: square.size.width/2, y: size.height - square.size.height/2)
+        let topRightPosition = CGPoint(x: size.width - square.size.width/2, y: size.height - square.size.height/2)
+        let bottomRightPosition = CGPoint(x: size.width - square.size.width/2, y: square.size.height/2)
+        let bottomLeftPosition = CGPoint(x: square.size.width/2, y: square.size.height/2)
         
-        //let goTopLeft
-        //let goTopRight
-        //let goBottomRight
-        //let goBottomLeft
+        let goTopLeft = SKAction.move(to: topLeftPosition, duration: 1)
+        let goTopRight = SKAction.move(to: topRightPosition, duration: 1)
+        let goBottomRight = SKAction.move(to: bottomRightPosition, duration: 1)
+        let goBottomLeft = SKAction.move(to: bottomLeftPosition, duration: 1)
+        
+        let sequence = SKAction.sequence([goTopLeft, goTopRight, goBottomRight, goBottomLeft])
+        
+        let loop = SKAction.repeatForever(sequence)
+        
+        square.run(loop)
+        
         
     }
 }
