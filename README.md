@@ -2,4 +2,4 @@
 
 ## Challenge:
 
-![GIF](https://github.com/DanielLimaDF/DLSimpleFullScreenImageCarousel/blob/master/ScreenShots/capture.gif)
+![GIF](https://github.com/DanielLimaDF/SpriteKitAnimationExample/blob/master/challenge/challenge.gif)
