@@ -28,12 +28,11 @@ class GameLayer: SKNode {
         
     }
     
-    
 }
 
 extension GameLayer: NodeSetup {
     func configure() {
-        square.position = CGPoint(x: 0, y: 0)
+        square.position = CGPoint(x: size.width/2, y: size.height/2)
     }
     
     func buildViewHierarchy() {
@@ -41,6 +40,16 @@ extension GameLayer: NodeSetup {
     }
     
     func createAndStartAnimations() {
+        
+        //let topLeftPosition
+        //let topRightPosition
+        //let bottomRightPosition
+        //let bottomLeftPosition
+        
+        //let goTopLeft
+        //let goTopRight
+        //let goBottomRight
+        //let goBottomLeft
         
     }
 }
