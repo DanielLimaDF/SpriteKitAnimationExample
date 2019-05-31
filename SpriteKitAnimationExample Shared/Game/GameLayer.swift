@@ -59,6 +59,5 @@ extension GameLayer: NodeSetup {
         
         square.run(loop)
         
-        
     }
 }
