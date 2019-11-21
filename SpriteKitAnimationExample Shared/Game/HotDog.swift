@@ -16,7 +16,7 @@ class HotDog: SKSpriteNode {
         textures = []
         
         let hotDogTexture = SKTexture(imageNamed: "cq_walk1")
-        hotDogTexture.filteringMode = .nearest
+        //filteringMode
         super.init(texture: hotDogTexture, color: SKColor.clear, size: hotDogTexture.size())
         setupNode()
     }
@@ -38,15 +38,15 @@ extension HotDog: NodeSetup {
     }
     
     func createAndStartAnimations() {
-        
-        for index in 1...6{
-            let texture = SKTexture(imageNamed: "cq_walk\(index)")
-            texture.filteringMode = .nearest
-            textures.append(texture)
-        }
-        
-        run(SKAction.repeatForever(SKAction.animate(with: textures, timePerFrame: 0.1)))
-        
+
+        //append textures
+
+
+        //Action
+
+
+        //run with loop
+
     }
     
 }
