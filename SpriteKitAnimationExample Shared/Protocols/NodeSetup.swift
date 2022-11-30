@@ -20,4 +20,8 @@ extension NodeSetup {
         buildViewHierarchy()
         createAndStartAnimations()
     }
+
+    func configure() {
+        
+    }
 }
